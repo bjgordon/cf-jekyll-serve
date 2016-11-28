@@ -1,0 +1,11 @@
+---
+env:
+  JEKYLL_ENV: production
+applications:
+- name: cf-jekyll-serve
+  buildpack: https://github.com/cloudfoundry/ruby-buildpack.git
+  memory: 512M
+  instances: 1
+  path: .
+  command: 'bundle exec puma -t 8:32 -w 3 -p $PORT'
+
